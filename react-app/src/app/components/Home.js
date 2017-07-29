@@ -28,7 +28,7 @@ export default class Home extends Component {
                 type:'INCREMENT'
             })
 
-        },2000)
+        },20000)
 
         this.unsubscribeFn = store.subscribe(()=> this.forceUpdate());
     }

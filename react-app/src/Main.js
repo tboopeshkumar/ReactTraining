@@ -4,9 +4,11 @@ import React from "react";
 import {render} from "react-dom";
 //import {App} from "./app/App";
 import Routes from "./app/Routes";
-import "./app/Store";
+import store from "./app/Store";
+import {Provider} from "react-redux";
 
-render(
-   <Routes></Routes>, 
+render(<Provider store={store}>
+   <Routes></Routes>
+   </Provider>, 
     document.getElementById("root"),
     ()=>console.log("render is done"));

@@ -30,7 +30,11 @@ let rootReducer = combineReducers({
 
 //store accept only one reducer as parameter
 let store = createStore(rootReducer, {
-                        counterState: 1000
+                        counterState: 1000,
+                        cartState :[
+                            {id:1, name:'Moto'},
+                            {id:2, name:'Nexus'}
+                        ]
                     });
 
 export default store;
