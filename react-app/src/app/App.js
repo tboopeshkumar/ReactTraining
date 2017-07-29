@@ -1,17 +1,18 @@
+"use strict";
 import React, { Component } from 'react'
-import {Header} from './components/Header'
-import {Footer} from './components/Footer'
-import Home from "./components/Home"
+import { Header } from './components/Header'
+import { Footer } from './components/Footer'
 
 export class App extends React.Component {
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <Header title="React app"></Header>
-                <Home>
-                    
-                </Home>
-                 <Footer company="Sapient" year="2017"></Footer>
+                {/* view container */}
+                <div>
+                    {this.props.children}
+                </div>
+                <Footer company="Sapient" year="2017"></Footer>
             </div>
         )
     }
