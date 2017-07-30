@@ -1,8 +1,25 @@
-import * as ActionTypes from "./ActionTypes"
+import * as ActionTypes from "./ActionTypes";
 
-export function emptyCart(){
-     console.log("empty cart called");
-    return {       
+export function addItemToCart(product) {
+    return {
+        type: ActionTypes.ADD_ITEM_TO_CART,
+        item: {
+            name: product.name,
+            id: product.id
+        }
+    }
+}
+
+export function removeItemFromCart(id) {
+    return {
+        type: ActionTypes.REMOVE_ITEM_FROM_CART,
+        id: id
+    }
+}
+
+
+export function emptyCart() {
+    return {
         type: ActionTypes.EMPTY_CART
     }
 }

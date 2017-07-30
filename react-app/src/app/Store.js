@@ -1,7 +1,8 @@
 import {createStore, combineReducers, applyMiddleware} from "redux";
 import thunk from "redux-thunk";
-
 import cartReducer from "./cart/Reducer";
+
+import productReducer from "./product/Reducer";
 
 const INITIAL_STATE = 0;
 
@@ -24,7 +25,8 @@ function counterReducer(state = INITIAL_STATE, action) {
 // combine reducer
 let rootReducer = combineReducers({
     cartState: cartReducer,
-    counterState: counterReducer
+    counterState: counterReducer,
+    productState : productReducer
 });
 
 //code below for experiement purposes

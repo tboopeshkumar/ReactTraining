@@ -1,3 +1,5 @@
+//this adds fetch method to window object
+import "whatwg-fetch";
 //main.js
 import React from "react";
 //hosting react into real dom/html

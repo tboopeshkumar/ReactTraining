@@ -2,6 +2,7 @@
 import {connect} from 'react-redux';
 import Cart from "../components/Cart"
 import * as actions from "../Actions"
+import {bindActionCreators} from "redux";
 
 //mapping redux state to react props
 function mapReduxStateToReactProps(state){
@@ -16,7 +17,8 @@ function mapReduxDispatchToReactProps(dispatch){
         emptyItems : ()=>{
             let action = actions.emptyCart();
             dispatch(action);
-        }
+        },
+        cartActions : bindActionCreators(actions,dispatch)
     }
 }
 

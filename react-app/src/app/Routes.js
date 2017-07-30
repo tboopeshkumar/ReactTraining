@@ -4,8 +4,10 @@ import { App } from "./App";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import NotFound from "./components/NotFound"
-import Cart from './cart/containers/CartContainer'
+import NotFound from "./components/NotFound";
+import Cart from './cart/containers/CartContainer';
+
+import ProductRoutes from "./product/Routes";
 
 export default function Routes(props) {
     return (
@@ -16,6 +18,11 @@ export default function Routes(props) {
                     <Route path="/contact/:city" component={Contact} />
                     <Route path="/about" component={About} />
                     <Route path="/cart" component={Cart} />
+                    <Route path="/products">
+                        <ProductRoutes>
+                            
+                        </ProductRoutes>
+                    </Route>
                     <Route path="**" component={NotFound} />
                 </Switch>
             </App>
