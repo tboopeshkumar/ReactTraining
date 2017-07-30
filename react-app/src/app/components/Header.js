@@ -8,6 +8,7 @@ export class Header extends Component {
            
             <div>
                 <h2>{this.props.title}</h2>
+                <span>{this.props.offer.name}-{this.props.offer.price}</span><br/>
                 <div>
                   
                     <NavLink to="/" exact

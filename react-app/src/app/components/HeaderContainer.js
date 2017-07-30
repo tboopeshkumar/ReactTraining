@@ -8,7 +8,8 @@ import {Header} from "./Header";
  
 const mapReduxStateToCompProps = (state) => {
      return {
-         cartLength: state.cartState.length
+         cartLength: state.cartState.length,
+         offer : state.productState.offer
      }
 }
  

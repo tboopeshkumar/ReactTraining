@@ -73,6 +73,16 @@ let store = createStore(rootReducer, {
     cartState: [ ...cartItems]
 }, applyMiddleware(logger,thunk, cartStorageMiddleware));
 
+
+var socket = io("http://localhost:7070");
+socket.on('offer', function (offer) {
+       console.log("offer ", offer);
+       store.dispatch({
+           type:"OFFER",
+           offer:offer
+       })
+})
+
 export default store;
 
 store.subscribe( ()=> {
