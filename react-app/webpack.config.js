@@ -4,6 +4,7 @@ var path = require('path');
 var APP_DIR = path.resolve(__dirname, 'src');
 
 var BUILD_DIR = path.resolve(__dirname, 'dist');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
   entry: {
@@ -31,6 +32,7 @@ var config = {
   devtool: 'source-map',
 
   plugins :[
+     
       new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             filename: 'vendor.bundle.js',
@@ -39,6 +41,12 @@ var config = {
                 return context && context.indexOf('node_modules') >= 0;
             },
         }),   
+
+          new HtmlWebpackPlugin({
+        title: 'My Product App',
+        filename: 'index.html', //output file name
+        template: 'template.html' //input file
+      })
   ]
 
 };

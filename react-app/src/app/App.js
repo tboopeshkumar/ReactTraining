@@ -13,8 +13,10 @@ export class App extends React.Component {
                 <div>
                     {this.props.children}
                 </div>
-                <Footer company="Sapient" year="2017"></Footer>
+                <Footer company="Sapient" year="2018"></Footer>
             </div>
+
+            
         )
     }
 }

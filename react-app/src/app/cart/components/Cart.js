@@ -3,7 +3,7 @@ import React from 'react';
 export default function Cart(props){
   let list = props.items.map ( product => (
 
-                    <li >
+                    <li key={product.id} >
                       {product.name}
                     
                     </li>
@@ -16,7 +16,7 @@ export default function Cart(props){
                 Empty
             </button> */}
     <ul>
- {/* {list}  */}
+  {list}  
             </ul>
            
   <button onClick={(e)=>{ props.cartActions.emptyCart()}}>

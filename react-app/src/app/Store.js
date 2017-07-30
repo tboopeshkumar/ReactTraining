@@ -29,17 +29,49 @@ let rootReducer = combineReducers({
     productState : productReducer
 });
 
+function logger(store) {
+    return function(next) {
+        return function(action) {
+            console.log('dispatching', typeof action,action)
+            let result = next(action)
+            //reducers/next available middlewares called
+             console.log('next state', store.getState())
+             return result;
+        }
+    }
+}
+
+// to save store (date) locally
+// localStorage - stores locally and available even after close tab, close browser, between tabs
+// sessionStore = stores locally and available only with the same tab.
+function cartStorageMiddleware(store){
+    return function(next){
+        return function(action){
+            let result =next(action);
+            if(action.type.indexOf("CART") >= 0){
+                let state = store.getState();
+                window.localStorage.setItem("carts", JSON.stringify(state.cartState));
+            }
+            return result;
+        }
+    }
+}
+
+//load from local storage
+let cartItems=[];
+if(window.localStorage.carts){
+    cartItems = JSON.parse(window.localStorage.carts);
+}
+
 //code below for experiement purposes
+
 
 //store accept only one reducer
 //one react application shud have only one store ideally
 let store = createStore(rootReducer, {
     counterState:1000,
-    cartState: [
-        {id: 1, name: 'Moto'},
-        {id: 2, name: 'Nexus'}
-    ]
-}, applyMiddleware(thunk));
+    cartState: [ ...cartItems]
+}, applyMiddleware(logger,thunk, cartStorageMiddleware));
 
 export default store;
 
