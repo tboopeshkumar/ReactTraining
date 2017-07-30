@@ -76,7 +76,7 @@ let store = createStore(rootReducer, {
 
 var socket = io("http://localhost:7070");
 socket.on('offer', function (offer) {
-       console.log("offer ", offer);
+      // console.log("offer ", offer);
        store.dispatch({
            type:"OFFER",
            offer:offer

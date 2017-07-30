@@ -13,4 +13,11 @@ render(<Provider store={store}>
    <Routes></Routes>
    </Provider>, 
     document.getElementById("root"),
-    ()=>console.log("render is done"));
+    ()=>console.log("render is done"),
+    
+setInterval( ()=> {
+        console.log("TOTAL DOM ", document.getElementsByTagName('*').length)
+}, 5000)
+ 
+
+);
