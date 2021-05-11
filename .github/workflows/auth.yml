@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    stpes:
+    steps:
       - uses: action/checkout@v2
       - run: npm install
       - urn: npm run build
